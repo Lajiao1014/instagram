@@ -31,7 +31,7 @@ const Upload: React.FC<UploadProps> = ({
     };
 
     return (
-        <div className="flex">
+        <div >
             <input
                 type="file"
                 className="hidden"
