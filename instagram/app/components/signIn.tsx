@@ -1,17 +1,32 @@
-import React from 'react';
-import Image from 'next/image';
-const Login = () => {
+import Image from "next/image";
+
+const SignIn = () => {
     return (
+
         <div className="flex items-center justify-center  h-screen min-w-[100vw] mt-10">
-            <div className="w-[850px] h-[96%] flex items-center flex-col">
-                {/* Login */}
-                <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="w-[335px] h-[400px] bg-transparent border rounded-sm mb-2">
+            <div className="w-fit h-[96%] flex items-center flex-col">
+                {/* Sign up */}
+                <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="w-[335px] h-fit bg-transparent border rounded-sm mb-2">
                     <div className="flex items-center justify-center w-[100%] h-[100px] font-serif text-[40px] ">Instagram</div>
-                    <div className="flex flex-col items-center mt-4">
-                        {/* Input for Phone number, Username, or Email */}
+                    <div className="text-[18px] text-center">Sign up to see photos and videos<br />from your friends.</div>
+
+                    <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center mt-2 gap-2 bg-blue-500 w-[80%] h-[30px] rounded-md ">
+                            <Image src="/2021_Facebook_icon.svg.webp" width={20} height={20} alt="Facebook" />
+                            <a href="" className="text-[18px] text-white">Log in with Facebook </a>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        {/* OR */}
+                        <div className="flex items-center justify-center p-2 gap-2">
+                            <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="border-b w-[110px]"></div>
+                            <span className="text-[13px]">OR</span>
+                            <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="border-b w-[110px]"></div>
+                        </div>
                         <input
                             type="text"
-                            placeholder="Phone number, username, or email"
+                            placeholder="Mobile number or Email"
                             style={{ borderColor: 'rgb(147, 149, 131)' }}
                             className="w-[75%] h-[40px] mb-2 p-2 border  rounded bg-black text-white text-[13px]"
                         />
@@ -22,22 +37,29 @@ const Login = () => {
                             style={{ borderColor: 'rgb(147, 149, 131)' }}
                             className="w-[75%] h-[40px] mb-4 p-2 border rounded bg-black text-white text-[13px]"
                         />
-                        <button className="w-[75%] h-[30px] bg-blue-400 text-white rounded-md">Log in</button>
-                        {/* OR */}
-                        <div className="flex items-center justify-center gap-2 mt-4">
-                            <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="border-b w-[110px]"></div>
-                            <span className="text-[13px]">OR</span>
-                            <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="border-b w-[110px]"></div>
-                        </div>
-                        <div className="flex items-center justify-center mt-4 gap-2">
-                            <Image src="/2021_Facebook_icon.svg.webp" width={20} height={20} alt="Facebook" />
-                            <a href="" className="text-[18px] text-blue-500">Log in with Facebook </a>
-                        </div>
-                        <div className="text-[14px] mt-4">Forgot password?</div>
+                        <input
+                            type="text"
+                            placeholder="Full Name"
+                            style={{ borderColor: 'rgb(147, 149, 131)' }}
+                            className="w-[75%] h-[40px] mb-2 p-2 border  rounded bg-black text-white text-[13px]"
+                        />
+                        {/* Input for Password */}
+                        <input
+                            type="password"
+                            placeholder="Username"
+                            style={{ borderColor: 'rgb(147, 149, 131)' }}
+                            className="w-[75%] h-[40px] mb-4 p-2 border rounded bg-black text-white text-[13px]"
+                        />
+                        <div className="text-[13px] text-center w-[90%] m-2">People who use our service may have uploaded your contact information to Instagram. Learn<br />More</div>
+                        <div className="text-[13px] text-center w-[90%] m-2">By signing up, you agree to our Terms , Privacy<br />Policy and Cookies Policy .</div>
+                        <button className="w-[75%] h-[30px] bg-blue-400 text-white rounded-md mb-10">Sign up</button>
                     </div>
                 </div>
                 {/* Don't have an account? Sign up */}
-                <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="w-[335px] h-[80px] bg-transparent flex justify-center items-center border rounded-sm">Don't have an account?<span className="text-blue-500">Sign up</span></div>
+                <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="w-[335px] h-[80px] bg-transparent flex flex-col justify-center items-center border rounded-sm p-10">
+                    <div>Have an account?</div>
+                    <div className="text-blue-500">Log in</div>
+                </div>
                 <div className="w-[335px] h-[110px] bg-transparent flex  items-center flex-col relative mt-2" >
 
                     {/* Get the app */}
@@ -88,4 +110,7 @@ const Login = () => {
     );
 };
 
-export default Login;
+
+
+
+export default SignIn;
