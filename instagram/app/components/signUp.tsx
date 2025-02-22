@@ -3,8 +3,9 @@ import Image from "next/image";
 const SignIn = () => {
     return (
 
-        <div className="flex items-center justify-center  h-screen min-w-[100vw] mt-10">
-            <div className="w-fit h-[96%] flex items-center flex-col">
+        <div className="flex items-center justify-center  h-screen min-w-[100vw] ">
+            <div className="w-fit h-[100%] flex items-center flex-col mt-10">
+
                 {/* Sign up */}
                 <div style={{ borderColor: 'rgb(147, 149, 131)' }} className="w-[335px] h-fit bg-transparent border rounded-sm mb-2">
                     <div className="flex items-center justify-center w-[100%] h-[100px] font-serif text-[40px] ">Instagram</div>
@@ -64,22 +65,7 @@ const SignIn = () => {
 
                     {/* Get the app */}
                     <span className="mt-3">Get the app.</span>
-                    <div className="flex absolute gap-2 ">
-                        <Image
-                            src="/download-on-the-app-store-apple-logo.svg"
-                            width={150}
-                            height={50}
-                            priority
-                            alt="File icon"
-                        />
-                        <Image
-                            src="/download-on-the-app-store-apple-logo.svg"
-                            width={150}
-                            height={50}
-                            priority
-                            alt="File icon"
-                        />
-                    </div>
+
                 </div>
 
                 {/* Footer */}
@@ -105,8 +91,9 @@ const SignIn = () => {
                     </div>
 
                 </div>
+
             </div>
-        </div>
+        </div >
     );
 };
 

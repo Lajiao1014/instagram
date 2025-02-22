@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
+import { useAuth } from '../Context/autheneication';
 const Login = () => {
+
+
+    const authCtx = useAuth()
     return (
         <div className="flex items-center justify-center  h-screen min-w-[100vw] mt-10">
             <div className="w-[850px] h-[96%] flex items-center flex-col">
