@@ -5,6 +5,10 @@ const Login = () => {
 
 
     const authCtx = useAuth()
+
+    const callapi = () => {
+        authCtx.token
+    }
     return (
         <div className="flex items-center justify-center  h-screen min-w-[100vw] mt-10">
             <div className="w-[850px] h-[96%] flex items-center flex-col">

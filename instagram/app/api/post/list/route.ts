@@ -10,4 +10,4 @@ export async function GET(request: Request) {
     const posts = await Post.find();
 
     return NextResponse.json({ posts: posts });
-} 
+}        

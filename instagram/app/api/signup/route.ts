@@ -1,10 +1,21 @@
 import { NextResponse } from "next/server";
 import User from "../../db/Schema";
 import mongoose from "mongoose";
+import type { NextRequest } from 'next/server';
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
-        // 確保資料庫連接
+        const body = await request.json();
+        const { username, password, fullName, lastName } = body;
+
+        // 基本驗證
+        if (!username || !password || !fullName || !lastName) {
+            return NextResponse.json(
+                { error: '所有欄位都是必填的' },
+                { status: 400 }
+            );
+        }
+
         if (!mongoose.connection.readyState) {
             try {
                 console.log('Connecting to MongoDB...', process.env.MONGO_URI);
@@ -16,19 +27,6 @@ export async function POST(request: Request) {
             }
         }
 
-        // 解析請求體
-        const body = await request.json();
-        const { username, password, firstName, lastName } = body;
-
-        // 基本驗證
-        if (!username || !password || !firstName || !lastName) {
-            return NextResponse.json(
-                { error: '所有欄位都必須填寫' },
-                { status: 400 }
-            );
-        }
-
-        // 檢查電子郵件是否已存在
         const existingUser = await User.findOne({ username });
         if (existingUser) {
             return NextResponse.json(
@@ -37,12 +35,11 @@ export async function POST(request: Request) {
             );
         }
 
-        // 創建新用戶
         const newUser = await User.create({
-            username,
-            password,
-            firstName,
-            lastName,
+            username: username,
+            password: password,
+            firstName: fullName,
+            lastName: lastName,
             createdAt: new Date()
         });
 
@@ -51,16 +48,16 @@ export async function POST(request: Request) {
                 message: '註冊成功',
                 user: {
                     id: newUser._id,
-                    username: newUser.username,
+                    lastname: newUser.lastname,
                     firstName: newUser.firstName,
-                    lastName: newUser.lastName
+                    lastName: newUser.lastName,
                 }
             },
             { status: 201 }
         );
 
     } catch (error) {
-        console.error('註冊錯誤:', error);
+        console.error('註冊錯誤：', error);
         return NextResponse.json(
             { error: '註冊過程中發生錯誤' },
             { status: 500 }
